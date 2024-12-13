@@ -29,11 +29,12 @@ else if (умова 2) {блок коду, який виконається ,
 */
 
 let r = 6;
+let strWithR= 'r = ' + r;
 
 if(r>12) {
-    console.log('більше 12');
+    console.log(strWithR + ' ,більше 12');
 } else if (r<5) {
-    console.log('менше 5');
+    console.log(strWithR  +' ,менше 5');
 } else {
-    console.log('в діапазоні між 5 і 12');
+    console.log(strWithR +' , в діапазоні між 5 і 12');
 }
