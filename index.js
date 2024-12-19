@@ -1,46 +1,57 @@
-// Функції
-// функція (підпрограмма) -блок коду який виконує певні дії при виклику.
-//функція може приймать аргументи - значення , якв передаються у функцію. функція може викори товувати аргументи
-// функія може викликати аргументи( або ні)
-// функція - фрагмент програмного коду, до якого можна звернутись з іншого місця програми
+/*
 
-/* Синтаксис функції
+Обʼявлена функція - Function Declaration
 
-Як оголосити функцію
+function імʼя_функції(argument1, argument2) {
+тіло функції}
 
-function імʼя_функції(аргумент1, аргумент2) {
-....... тіло функції}
+імʼя_функції(argument1, argument2);
+
+
+hoisting - оголошення функції піднімається до верхньої частини коду
 
 */
 
-// Задача- написати ффункцію, яка буде приймати імʼя користувача- строка і буде вітатись з цим користуачем
+greetingUser("James");
 
-/*function greetingUser(userName) {
+function greetingUser(userName) {
+  //userName - абстракція, на якій ми завʼязуємо логіку роботи функції
+  //userName - формальний параметр
   console.log("Hi," + userName);
-}*/
-// використання функції
-/*greetingUser("Alex"); // Alex - аргумент
-greetingUser("John");
-greetingUser("Sam");
-greetingUser("Solar");*/
-
-// задача- створіть функію, яка приймає число, і додає до нього 5 і виводить результат у консоль
-
-function addFiveToNumber(number) {
-  let result = number + 5;
-  console.log(result);
-  return result;
 }
 
-const addFiveToNumberResult = addFiveToNumber(5);
+greetingUser("Alex");
 
-// Написати функію яка складає 2 числа і повертає результат
+/*
 
-function addTwoNumbers(num1, num2) {
-  const result = num1 + num2;
-  return result;
+Function Expression - Функціональний вираз
+
+const імʼя_функції = function(arg1, arg2) {
+...тіло фукції
 }
 
-const addTwoNumbersResult = addTwoNumbers(2, 5);
+імʼя_функції = function(arg1, arg2)
 
-console.log(addFiveToNumber + addFiveToNumberResult); 
+*/
+
+const greetingUser = function (userName) {
+  console.log("Hi," + userName);
+};
+
+greet("Kevin");
+
+/*
+
+Arrow Functon - стрілкова функція
+
+const імʼя_функції = (arg1, arg2) => {
+  тіло функції
+  }
+
+*/
+
+const greetArrow = (userName) => {
+  console.log("Hi," + userName);
+};
+
+greetArrow("Stepan");
