@@ -1,44 +1,62 @@
-//const value1 = Number(prompt("Введіть перше число:"));
-//const value2 = Number(prompt("Введіть друге число:"));
+//const num1 = Number(prompt("Введіть перше число"));
+//const num2 = Number(prompt("Введіть друге число"));
 
-// задача 1. написати фнкц. яка приймає 2 числа і повертає те число , що більше
+// Задача. Написати функцію, яка приймає 2 числа і додає їх
 
-/*
-
-function getBigger(number1, number2) {
-  // number1, number2 - формалні параметри
-  if (typeof number1 !== "number" || typeof number2 !== "number") {
-    console.log("Ми очікуємо числа");
-  } else if (number1 > number2) {
-    return number1;
-  } else {
-    return number2;
-  }
+function addTwoNumbers(arg1, arg2) {
+  console.log(num1);
+  return arg1 + arg2;
 }
 
-const result = getBigger(value1, value2);// value1, value2 - фактичні функції
+let result = addTwoNumbers(num1, num2);
 console.log(result);
-*/
 
-// задача 2. написати функцію, яка обчислює середнє арифметичне з двох чисел
+//область видимості  - визначення доступності і видимості змінних та функцій у певних частинах коду
 
-/*
-function average(number1, number2) {
-   
-  return (number1, number2) / 2;
+/* 
+
+ у JS існеє 2 основні області видимості:
+
+ 1. глобальна бласть видимості - охоплює весь документ (програму)
+
+
+ */
+
+const globalVariable = 10;
+
+function globalFunction() {
+  // тіло
 }
 
-console.log(average (value1, value2));
-*/
+console.log(globalVariable);
 
-// задача 3 . написати функцію, яка приймає число і визначає, чи є воно парним
+//2. локальна область видимості - визначається блоками коду (фігурними дужками)
 
-function isEven(number) {
-  if (number % 2 === 0) {
-    return true;
-  } else {
-    return false;
+function testFunction() {
+  const localVariable = 20; // локальна змінна
+
+  if (true) {
+    const innerVariable = 30; // локальна змінна if
+    console.log(innerVariable); // 30
+    console.log(localVariable); // 20
+    console.log(globalVariable); // 10
   }
-}
 
-console.log(isEven(6));
+  console.log(localVariable); // 20
+  console.log(innerVariable);
+}
+testFunction();
+
+//console.log(localVariable); - помилка
+
+//summary
+/*
+
+Scope - область видимості
+(це всі наші змінні, обʼєкти ітд, якаа нам доступні)
+
+Local Scope ( локальна область видимості) - це всі наші змінні, обʼєкти ітд ВСЕРЕДИНІ нашої функції
+
+Global Scope (глобальна область видимості) -  це всі наші змінні, обʼєкти ітд з поточного коду
+
+*/
