@@ -1,57 +1,44 @@
-/*
+//const value1 = Number(prompt("Введіть перше число:"));
+//const value2 = Number(prompt("Введіть друге число:"));
 
-Обʼявлена функція - Function Declaration
-
-function імʼя_функції(argument1, argument2) {
-тіло функції}
-
-імʼя_функції(argument1, argument2);
-
-
-hoisting - оголошення функції піднімається до верхньої частини коду
-
-*/
-
-greetingUser("James");
-
-function greetingUser(userName) {
-  //userName - абстракція, на якій ми завʼязуємо логіку роботи функції
-  //userName - формальний параметр
-  console.log("Hi," + userName);
-}
-
-greetingUser("Alex");
+// задача 1. написати фнкц. яка приймає 2 числа і повертає те число , що більше
 
 /*
 
-Function Expression - Функціональний вираз
-
-const імʼя_функції = function(arg1, arg2) {
-...тіло фукції
-}
-
-імʼя_функції = function(arg1, arg2)
-
-*/
-
-const greetingUser = function (userName) {
-  console.log("Hi," + userName);
-};
-
-greet("Kevin");
-
-/*
-
-Arrow Functon - стрілкова функція
-
-const імʼя_функції = (arg1, arg2) => {
-  тіло функції
+function getBigger(number1, number2) {
+  // number1, number2 - формалні параметри
+  if (typeof number1 !== "number" || typeof number2 !== "number") {
+    console.log("Ми очікуємо числа");
+  } else if (number1 > number2) {
+    return number1;
+  } else {
+    return number2;
   }
+}
 
+const result = getBigger(value1, value2);// value1, value2 - фактичні функції
+console.log(result);
 */
 
-const greetArrow = (userName) => {
-  console.log("Hi," + userName);
-};
+// задача 2. написати функцію, яка обчислює середнє арифметичне з двох чисел
 
-greetArrow("Stepan");
+/*
+function average(number1, number2) {
+   
+  return (number1, number2) / 2;
+}
+
+console.log(average (value1, value2));
+*/
+
+// задача 3 . написати функцію, яка приймає число і визначає, чи є воно парним
+
+function isEven(number) {
+  if (number % 2 === 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+console.log(isEven(6));
