@@ -13,6 +13,6 @@ const age = 9;
 
 // задача: реалізувати обмеження, щоб особи які не досягли повноліття не могли купувати алкогольні та тютюнові вироби
 
-const isAdult = age < 18 ? 'not adult' : 'adult';
+const isAdult = age > 18 ? true: false;
 
 console.log(isAdult);
