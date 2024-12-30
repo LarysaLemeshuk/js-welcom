@@ -60,3 +60,49 @@ switch (monthNumber) {
     break;
   }
 }
+
+/* 
+Задача 1
+
+prompt
+Виведіть користувачу пропозицію меню
+1 сік
+2 вода
+3 кава
+4 чай
+5 лимонад
+
+вивести в консоль напій, цифру якого ввів користувач
+зробити через switch-case
+*/
+
+const userChoice = Number(
+  prompt("Оберіть напій: 1 - Сік 2 - Вода 3 - Кава 4 - Чай 5 - Лимонад")
+);
+
+switch (userChoice) {
+  case 1: {
+    console.log('Сік');
+    break;
+  }
+  case 2: {
+    console.log('Вода');
+    break;
+  }
+  case 3: {
+    console.log('Кава');
+    break;
+  }
+  case 4: {
+    console.log('Чай');
+    break;
+  }
+  case 5: {
+    console.log('Лимонад');
+    break;
+  }
+  default: {
+    console.log('Оберіть щось із меню');
+  }
+}
+
