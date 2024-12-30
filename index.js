@@ -1,108 +1,60 @@
-// задача. написати програму яка перевіряє число на те, чи ділиться воно на 5, 3, 2
-
-const number = Number(prompt("введіть число: "));
 /*
-if (number % 5 === 0) {
-  console.log(number + " ділиться на 5");
-} else if (number % 3 === 0) {
-  console.log(number + " ділиться на 3");
-} else if (number % 2 === 0) {
-  console.log(number + " ділиться на 2");
-} else {
-  console.log("число націло не ділиться");
-}
-  */
+задача 2
+Зробити калькулятор
 
-// switch - спосіб реалізації вибору з декількох можливих варіантів в залежності від значення виразу
-// конструкція switch використовується у випадках коли одна змінна на різні значення
-/* Синтаксис
+користувач послідовно вводить 
+- переше число
+- дрге число
+- один з варіантів - + * /
 
- switch(вираз - якась змінна){
-   case значення_виразу: робимо щось одне;
-   case значення2_виразу: робимо щось інше;
-   case значення_виразу: робимо щось інше;
-   default: робимл щось, якщо інші значення не підійшли
- }
- 
- */
-
-// задача. нам приходить номер місяця. За номером місяця потрібно визначити пору року
-
-const monthNumber = 3;
-
-switch (monthNumber) {
-  case 1:
-  case 2:
-  case 12: {
-    console.log("зима");
-    break;
-  }
-  case 3:
-  case 4:
-  case 5: {
-    console.log("весна");
-    break;
-  }
-  case 6:
-  case 7:
-  case 8: {
-    console.log("літо");
-    break;
-  }
-  case 9:
-  case 10:
-  case 11: {
-    console.log("осінь");
-    break;
-  }
-  default: {
-    console.log("Введи чило від 1 до 12");
-    break;
-  }
-}
-
-/* 
-Задача 1
-
-prompt
-Виведіть користувачу пропозицію меню
-1 сік
-2 вода
-3 кава
-4 чай
-5 лимонад
-
-вивести в консоль напій, цифру якого ввів користувач
-зробити через switch-case
+Для кожної математичної дії зробіть окрему функію
+весь калькулятор - окрема функція, роль якої - спитати користувача два числа
 */
 
-const userChoice = Number(
-  prompt("Оберіть напій: 1 - Сік 2 - Вода 3 - Кава 4 - Чай 5 - Лимонад")
-);
+function calculator() {
+  const operand1 = Number(prompt("Введіть перше число"));
+  const operand2 = Number(prompt("Введіть друге число"));
+  const action = prompt("Введіть потрібну дію: +, -, *. /");
 
-switch (userChoice) {
-  case 1: {
-    console.log('Сік');
-    break;
+  let result; // тут буде лежать остаточний результат
+
+  switch (action) {
+    case "+": {
+      result = sum(operand1, operand2);
+      break;
+    }
+    case "-": {
+      result = substract(operand1, operand2);
+      break;
+    }
+    case "*": {
+      result = multy(operand1, operand2);
+      break;
+    }
+    case "/": {
+      result = divide(operand1, operand2);
+      break;
+    }
+    default: {
+      console.log("Сталася помилка!");
+    }
   }
-  case 2: {
-    console.log('Вода');
-    break;
-  }
-  case 3: {
-    console.log('Кава');
-    break;
-  }
-  case 4: {
-    console.log('Чай');
-    break;
-  }
-  case 5: {
-    console.log('Лимонад');
-    break;
-  }
-  default: {
-    console.log('Оберіть щось із меню');
-  }
+  console.log(result);
+}
+calculator();
+
+function sum(a, b) {
+  return a + b;
 }
 
+function substract(a, b) {
+  return a - b;
+}
+
+function multy(a, b) {
+  return a * b;
+}
+
+function divide(a, b) {
+  return a / b;
+}
