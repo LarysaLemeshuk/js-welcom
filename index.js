@@ -1,35 +1,86 @@
 /*
+Розробити алгоритм, який буде відображати режим нашого дня
 
-Higt Order Function (Фунція вищого порядку)-
-функція, яка приймає іншу функцію в якості аргумента
-
+Потрібнорозробити функцію, яка приймає ту чи іншу пору дня (ранок, обід, вечір) і виконує ті чи інші дії, які ми виконуємо у вкаазану пору дня
 */
 
-function calculator(num1, num2, functionLink) {// HOF
-  let result = functionLink(num1, num2);
-  return result;
+function todo(timeOfDay) {
+  //HOF
+  //morning - список справ на ранок
+  //lanch - список справ на обід
+  //eevening - список справ на вечір
+
+  switch (timeOfDay) {
+    case "morning": {
+      woshingFace();
+      brushingTeth();
+      skincare();
+      breakfast();
+      break;
+    }
+    case "lunch": {
+      goToOffice();
+      coding();
+      lunch();
+      coding();
+      break;
+    }
+    case "evening": {
+      education();
+      coding();
+      goToHome();
+      shower();
+      brushingTeth();
+      skincare();
+      sleep();
+      break;
+    }
+    default: {
+      console.log("помилка! такої пори дня не передбачено");
+    }
+  }
 }
 
-console.log(calculator(5, 5, sum));
+//todo("morning");
+//todo("lunch");
+todo ('evening')
 
-//використовуючи калькулятор, піднесіть num1 у степінь num2
- console.log( calculator(3, 2, function(a, b ){// callback
-    return a ** b;
-}))
-
-function sum(a, b) {
-  return a + b;
+function brushingTeth() {
+  console.log("brushing face");
 }
 
-function substract(a, b) {
-  return a - b;
+function skincare() {
+  console.log("skin care");
 }
 
-function multy(a, b) {
-  return a * b;
+function breakfast() {
+  console.log("breakfast");
 }
 
-function divide(a, b) {
-  return a / b;
+function goToOffice() {
+  console.log("goToOffice");
 }
-//callback - функція зворотнього виклику, яку ми передали як аргумент при виклику іншої функції
+
+function coding() {
+  console.log("coding");
+}
+
+function lunch() {
+  console.log("lunch");
+}
+
+function education() {
+  console.log("education");
+}
+
+function goToHome() {
+  console.log("go to home");
+}
+
+function shower() {
+  console.log("shower");
+}
+
+function sleep() {
+  console.log("sleep");
+}
