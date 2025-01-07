@@ -1,86 +1,30 @@
 /*
-Розробити алгоритм, який буде відображати режим нашого дня
 
-Потрібнорозробити функцію, яка приймає ту чи іншу пору дня (ранок, обід, вечір) і виконує ті чи інші дії, які ми виконуємо у вкаазану пору дня
+Детермінована функція - функція при одних і ти же аргументах у виклику повертає ЗАВЖДИ один і той самий результат
+
 */
 
-function todo(timeOfDay) {
-  //HOF
-  //morning - список справ на ранок
-  //lanch - список справ на обід
-  //eevening - список справ на вечір
-
-  switch (timeOfDay) {
-    case "morning": {
-      woshingFace();
-      brushingTeth();
-      skincare();
-      breakfast();
-      break;
-    }
-    case "lunch": {
-      goToOffice();
-      coding();
-      lunch();
-      coding();
-      break;
-    }
-    case "evening": {
-      education();
-      coding();
-      goToHome();
-      shower();
-      brushingTeth();
-      skincare();
-      sleep();
-      break;
-    }
-    default: {
-      console.log("помилка! такої пори дня не передбачено");
-    }
-  }
+function sum (a, b) {// детермінована функція
+    return a + b;
 }
 
-//todo("morning");
-//todo("lunch");
-todo ('evening')
+//console.log(sum( 2, 2));
+//console.log(sum( 2, 2));
+//console.log(sum( 2, 2));
 
-function brushingTeth() {
-  console.log("brushing face");
+let variable = 5;
+
+function addToNumberSomeVariable(number) {// недетрмінована функція
+    return number + variable;
 }
 
-function skincare() {
-  console.log("skin care");
-}
+console.log(addToNumberSomeVariable(5));// 10
+console.log(addToNumberSomeVariable(5));
+console.log(addToNumberSomeVariable(5)); 
 
-function breakfast() {
-  console.log("breakfast");
-}
+variable = 20;
 
-function goToOffice() {
-  console.log("goToOffice");
-}
+console.log(addToNumberSomeVariable);// 25
 
-function coding() {
-  console.log("coding");
-}
-
-function lunch() {
-  console.log("lunch");
-}
-
-function education() {
-  console.log("education");
-}
-
-function goToHome() {
-  console.log("go to home");
-}
-
-function shower() {
-  console.log("shower");
-}
-
-function sleep() {
-  console.log("sleep");
-}
+// якщо функція працює тільки з тими даними , які в неї приходять - детермінована
+//якщо функіція вилазить в світ, то в такому випадку, вона не завди може повертати один і той самий результат при одних і ти самих вхідних параметрах - недетемінована
