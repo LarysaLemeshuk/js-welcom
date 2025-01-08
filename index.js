@@ -1,35 +1,24 @@
+// Loops - Цикли
+
 /*
+while - цикл з передумовою
 
-Дано правильний пароль = qwerty1234
+while(умова){
+  тут буде блок коду , який буде циклічно виконуватись
+}
 
-prompt
-заритуйте у користувача пароль через prompt, поки пароль, який вводить користувач, не співпаде з тим паролем, який лежить у змінній
+do-while - цикл з післяумовою
+
+do {
+  тут буде блок коду , який буде циклічно виконуватись
+} while(умова)
 
 */
 
-const correctPassword = "qwerty1234";
-/*
-const userPass = prompt('Введіть свій пароль');
+const correctPassword = 'qwerty1234'
+let userPass;// пароль з промту
 
-while(userPass !== correctPassword){
-    userPass = prompt('Введіть пароль ще раз');
-}
-*/
-
-/*
-while(true){
-    const userPass = promt('Введіть свій пароль')
-    if(userPass === correctPassword){
-        break;
-    }
-}
-    */
-
-let isPasswordCorrect = false;
-while(!isPasswordCorrect ){// isPasswordCorrect === false
-    const userPass = prompt('Введіть свій пароль')
-
-    if(userPass  === correctPassword){
-        isPasswordCorrect = true;
-    }
-}
+do {
+    userpass = prompt('введіть свій пароль');
+}while(userPass !== correctPassword)
+    // до тих пір поки
