@@ -1,52 +1,5 @@
 /*
 
-Loops - цикли
-
-while(умова){
-  код, який повторюється, поки умова = true;
-}
-
-Написати в консолі 10 разів цифру 1
-
-
-while(кількість_консоль_логів<10){
-  consol.log.(1);
-  кількість_консоль _логів++;
-}
-
-*/
-
-//let iterator = 0; // лічильник clg
-
-//Ітерація - один прохід циклу (коло)
-
-//while (iterator < 10) {
- // console.log(iterator);
-  //iterator++;
-//}
-
-// Нескінченний цикл
-
-while (true) {
-  console.log("Не вірно");
-  break;
-}
-
-// Задача. Зробити 10 повторів (ітерацій) циклу і вивести на консоль парні значення лічильника
-
-let i = 0;// i += 2   0 -> 2 -> 4 -> 6 -> 8 -> 10 (false)
-//  i++  //  0 -> 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9 -> 10 (false) 
-
-while(i < 10) {
-   if(i % 2 === 0){
-        console.log(i);
-    }
-
-    i++;
-}
-
-/*
-
 Дано правильний пароль = qwerty1234
 
 prompt
@@ -54,5 +7,29 @@ prompt
 
 */
 
+const correctPassword = "qwerty1234";
+/*
+const userPass = prompt('Введіть свій пароль');
 
+while(userPass !== correctPassword){
+    userPass = prompt('Введіть пароль ще раз');
+}
+*/
 
+/*
+while(true){
+    const userPass = promt('Введіть свій пароль')
+    if(userPass === correctPassword){
+        break;
+    }
+}
+    */
+
+let isPasswordCorrect = false;
+while(!isPasswordCorrect ){// isPasswordCorrect === false
+    const userPass = prompt('Введіть свій пароль')
+
+    if(userPass  === correctPassword){
+        isPasswordCorrect = true;
+    }
+}
