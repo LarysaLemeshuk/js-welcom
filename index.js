@@ -1,43 +1,35 @@
 /*
-
-For
-
-for(початковий стан; умова, за якої цикл повторюється; зміна лічильника на кожній ітерації;){
-блок коду, який повторюється
-}
-
-початковий стан - початкове значення для лічильника
+Задача 1 
+Написати функцію, яка приймає 2 числа (діапазон) і виводть на консоль всі числа з цього діапазону , які діляться на 5
 
 */
-
-//задача. вивести 10 консоль логів
-
-for (let i = 0; i < 10; i = i + 3) {
-  console.log(i);
-}
-
 /*
-Задача . написати функцію, яка описує факторіал переданого ій числа, результат роботи вивести на консоль
+function printNumberDivisibleBy5(start, end) {
+  for (let i = start; i <= end; i++) {
+    if (i % 5 === 0) {
+      console.log(i);
+    }
+  }
+}
 
-факторіал - 
-5! = 1*2*3*4*5
-10! = 1*2*3*4*5*6*7*8*9*10
-якщо, число відємне-поверніть з функції помилку
-якщо число дорівнює 0 або 1 поверніть з функції 1
-знаходимо факторіал ...
+printNumberDivisibleBy5(10,)
 */
 
-function factorial(number) {
-  let res = 1;//у цій змінній ми будемо накопичувати добуток
-  
-  if (number === 0 || number === 1) {
-    return 1;
-  } else if (number < 0) {
-    return null;
-  } 
-  for (let it = 1; it <= number; it++) {
-      res = res * it;
+function count() {
+  let numberOne = Number(prompt("Введіть число один"));
+  let numberTwo = Number(prompt("Введіть число два"));
+  if(numberOne < numberTwo){
+    console.log('почтковечисло повинно бути менше за кінцеве число');
+    return;//дострокове завершення функції
   }
-  return res;
+
+  for (let it = numberOne; it <= numberTwo; it++) {
+    if (it % 5 === 0) {
+      console.log(it);
+    } else {
+      console.log('Число ' + it + 'не  кратне 5');
+    }
+  }
+  alert("Результат: " + it);
 }
-console.log(factorial(10));
+count();
