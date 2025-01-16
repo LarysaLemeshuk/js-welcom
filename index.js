@@ -1,47 +1,40 @@
-/*
+/* способи створення обʼєкта
+const cat = {// літеральне створення обʼєкта
 
-Обʼєкти
-
-const назваОбїєкту = {
-   ключ: значення
 }
 
-Обʼєкти мають
-- властивості
-- методи
+const cat2 = Object();// Функція-конструктор
 
+const cat3 = new Object(); //Функція-конструктор з оператором new
 */
 
-const obj = {
-  color: "white",
-  fontSize: 2,
-};
-
-// ООП - парадигма програмування, яка дозволяє створювати програми з використання обʼєктів
-
-//Задачаю Опишуть обʼєкт лампочки
-
-const bulb = {
-  lightness: 200,
-  power: "200W",
-  cap: "small",
-  on: function () {
-    return "THE LIGHT ON";
+const cat = {
+  name: "MURZIK",
+  color: "red",
+  breed: "Dworovyi",
+  age: 2,
+  eat: function () {
+    return "I am eating";
   },
-  off: function () {
-    return "THE LIGHT OFF";
+  sleep: function () {
+    return "I am sleeping";
   },
 };
 
-console.log(bulb.lightness);
+cat.age = cat.age + 1;
 
-console.log(bulb.on());
+cat.sleep = undefined; //bad practice
 
+delete cat.sleep; // good practice
 
-const dog = {
-    name: 'TIZIK',
-    'favorit food': 'MEAT'
-}
+// Adding properties
 
-console.log(dog.name);
-console.log(dog["favorit food"]);
+//Задача. Додати імʼя друга Музрзика до обʼєкту Мурзика
+
+cat.friend = "TUZIK";
+
+cat["favorite food"] = "fish";
+
+cat.meow = function () {
+  return "MEEEEOW";
+};
