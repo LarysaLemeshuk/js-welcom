@@ -21,12 +21,24 @@ function Cat(name, color, breed, age) {
   this.color = color;
   this.breed = breed;
   this.age = age;
-  this.run = function(){
-    return this.name + ' is running'
-  }
+  this.run = function () {
+    return this.name + " is running";
+  };
 }
 
 //Задача: Створити двох котів, за допомогою функції-конструктора
 
-const cat1 = new Cat('Bublik', 'White', 'Dworowyi', 3);
-const cat2 = new Cat(`Murzik`,`black`, `siam`, 4);
+const cat1 = new Cat("Bublik", "White", "Dworowyi", 3);
+const cat2 = new Cat(`Murzik`, `black`, `siam`, 4);
+
+//Задача: створіть функцію-конструктор собаки, в якого має бути імʼя, колір, вік
+
+function Dog(name, color, age) {
+  this.name = name;
+  this.color = color;
+  this.age = age;
+}
+
+const dog1 = new Dog("Bublik", "brown", 3);
+const dog2 = new Dog("Tuzik", "black", 4);
+const dog3 = new Dog("Bob", "orange", 3);
