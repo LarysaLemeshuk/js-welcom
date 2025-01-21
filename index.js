@@ -37,8 +37,31 @@ function Dog(name, color, age) {
   this.name = name;
   this.color = color;
   this.age = age;
+  this.gav = function(){
+    return this.name + 'GAV-gav-gav';
+  }
 }
 
 const dog1 = new Dog("Bublik", "brown", 3);
 const dog2 = new Dog("Tuzik", "black", 4);
 const dog3 = new Dog("Bob", "orange", 3);
+
+
+/*const dog = {
+  name: 'Tuzik',
+  color: 'white',
+  age: 3
+}
+
+const dog5 = {
+  name: 'Knopak',
+  color: 'black',
+  age: 3
+}
+
+const dog6 = {
+  name: 'Lime',
+  color: 'black',
+  age: 3
+}
+  */
