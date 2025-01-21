@@ -7,34 +7,26 @@ const cat2 = Object();// Функція-конструктор
 
 const cat3 = new Object(); //Функція-конструктор з оператором new
 */
+/*
+Уогди у функціях конструкторах
 
-const cat = {
-  name: "MURZIK",
-  color: "red",
-  breed: "Dworovyi",
-  age: 2,
-  eat: function () {
-    return "I am eating";
-  },
-  sleep: function () {
-    return "I am sleeping";
-  },
-};
+1. Імʼя фукції-конструктора має починатися з великої літери
+2. Функція-конструктор повинна викоуватись лише за допомогою оператора new
+*/
 
-cat.age = cat.age + 1;
+//Задача. написати функцію-конструктор для створення кота
 
-cat.sleep = undefined; //bad practice
+function Cat(name, color, breed, age) {
+  this.name = name; //this - посилання на новоствореного кота
+  this.color = color;
+  this.breed = breed;
+  this.age = age;
+  this.run = function(){
+    return this.name + ' is running'
+  }
+}
 
-delete cat.sleep; // good practice
+//Задача: Створити двох котів, за допомогою функції-конструктора
 
-// Adding properties
-
-//Задача. Додати імʼя друга Музрзика до обʼєкту Мурзика
-
-cat.friend = "TUZIK";
-
-cat["favorite food"] = "fish";
-
-cat.meow = function () {
-  return "MEEEEOW";
-};
+const cat1 = new Cat('Bublik', 'White', 'Dworowyi', 3);
+const cat2 = new Cat(`Murzik`,`black`, `siam`, 4);
