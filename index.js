@@ -1,67 +1,70 @@
-/* способи створення обʼєкта
-const cat = {// літеральне створення обʼєкта
+/* РОзробка прогами для керування книжковим магазином
 
-}
+ Предметна область: В кножковому магазині багато книг на продаж
 
-const cat2 = Object();// Функція-конструктор
+ всі наші книги можна представити у вигляді обʼєкти з однаковою структурою.
 
-const cat3 = new Object(); //Функція-конструктор з оператором new
-*/
-/*
-Уогди у функціях конструкторах
+ Задача: створити контсруктор обʼєктів для представлення книг з наступними властивостями
+ Назва книги, автор, рік видання, ціна
+ спроектувати методи для отримання і встановлення значень цих властивостей
 
-1. Імʼя фукції-конструктора має починатися з великої літери
-2. Функція-конструктор повинна викоуватись лише за допомогою оператора new
+ Задача 2: зробити для всіх книг метод, який повернув ціну книги , але зі знижкою
 */
 
-//Задача. написати функцію-конструктор для створення кота
+function Book(title, author, year, price) {
+  this.title = title;
+  this.author = author;
+  this.year = year;
+  this.price = price;
 
-function Cat(name, color, breed, age) {
-  this.name = name; //this - посилання на новоствореного кота
-  this.color = color;
-  this.breed = breed;
-  this.age = age;
-  this.run = function () {
-    return this.name + " is running";
+  this.getTitle = function () {
+    //реалізувати перевірку права на доступ до властивості
+    return this.title;
+  };
+  this.getAutor = function () {
+    //реалізувати перевірку права на доступ до властивості
+    return this.author;
+  };
+  this.getYear = function () {
+    //реалізувати перевірку права на доступ до властивості
+    return this.year;
+  };
+  this.getPrice = function () {
+    //реалізувати перевірку права на доступ до властивості
+    return this.price;
+  };
+
+  this.setTitle = function (newTitle) {
+    //ралізувати перевірки на право на перейменування чи ін.
+    this.title = newTitle;
+  };
+  this.setAutor = function (newAutor) {
+    this.author = newAutor;
+  };
+  this.setYear = function (newYear) {
+    this.year = newYear;
+  };
+  this.setPrice = function (newPrice) {
+    this.price = newPrice;
+  };
+
+  this.calculateDiscountedPrice = function (DiscountPercentage) {
+    const discountedPrice =
+      this.price - this.price * (DiscountPercentage / 100);
+    return discountedPrice;
   };
 }
 
-//Задача: Створити двох котів, за допомогою функції-конструктора
+const book1 = new Book("Чотири вітри", "Крістін Генна", 2020, 450);
 
-const cat1 = new Cat("Bublik", "White", "Dworowyi", 3);
-const cat2 = new Cat(`Murzik`, `black`, `siam`, 4);
+//console.log(book1.getTitle());
+//console.log(book1.getAutor());
+//console.log(book1.getYear());
+//console.log(book1.getPrice());
 
-//Задача: створіть функцію-конструктор собаки, в якого має бути імʼя, колір, вік
+//book1.setTitle("New Title");
+//book1.setAutor("New Autor");
+//book1.setYear(2025);
+//book1.setPrice(350);
 
-function Dog(name, color, age) {
-  this.name = name;
-  this.color = color;
-  this.age = age;
-  this.gav = function(){
-    return this.name + 'GAV-gav-gav';
-  }
-}
-
-const dog1 = new Dog("Bublik", "brown", 3);
-const dog2 = new Dog("Tuzik", "black", 4);
-const dog3 = new Dog("Bob", "orange", 3);
-
-
-/*const dog = {
-  name: 'Tuzik',
-  color: 'white',
-  age: 3
-}
-
-const dog5 = {
-  name: 'Knopak',
-  color: 'black',
-  age: 3
-}
-
-const dog6 = {
-  name: 'Lime',
-  color: 'black',
-  age: 3
-}
-  */
+console.log(book1.calculateDiscountedPrice(90));
