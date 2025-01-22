@@ -1,61 +1,26 @@
-/*
-Задача 1:
-зробити функцію-конструктр Country, яка приймає в якості аргументів:
-- назва країни
-- популяція (population)
-- площа (area)
-Спроектувати метод густоти населення
-Густота населення = популяція цієї країни поділена на площу країни
+// задача :
+//в середині алерти виконати математичний розрахунок: 2 + 2 =4
 
-Задача 2:
-зробити функцію-конструктор авто, яку має:
--назву
--максимальну швидкість
--поточну швидкість
-спроектувати методи:
-- метод прискорення (accelearte) - приймає в якості аргумента певне прискорення
-прискорення не може !== максимальній швидкості
-- метод сповільнення (deaccelearte) - приймає в якості аргумента певне сповільнення
- при сповільненні поточна швидкість не може бути менша за нуль
- - метод упинки (stop)
-*/
+//alert('2 + 2 =' + (2 + 2));
 
-function Country(name, population, area) {
-  this.name = name;
-  this.population = population;
-  this.area = area;
+// Подвій лапки " helo"
+//одинарні лапки ''
+// Зворотні лапки ``
+// вирази укладаються в  ${.... вираз...}
 
-  this.getDensity = function (PopulationDensity) {
-    return this.population / this.area;
-  };
-}
-const UK = new Country("UNITED KINDOM", 6733300, 243610);
+const nicname = "Vasia";
 
-function Auto(name, maxSpeed) {
-  this.name = name;
-  this.maxSpeed = maxSpeed;
-  this.speed = 0;
+//alert('привіт' + nicname + '!');
 
-  this.accelerate = function (accelValue) {
-    this.speed = this.speed + accelValue;
-    if (this.speed > this.maxSpeed) {
-      this.speed = this.maxSpeed;
-    }
-    return this.speed;
-  };
+//alert(`привіт, ${nicname}!`);
 
-  this.deaccelerate = function (deaccelValue) {
-    this.speed = this.speed - deaccelValue;
-    if (this.speed < 0) {
-      this.speed = 0;
-    }
-    return this.speed;
-  };
+//alert(`результат: ${1+2}`);
 
-  this.stop = function () {
-    this.speed = 0;
-    return this.speed;
-  };
-}
+// Задача: запитати у користувача 2 числа і вивести відповідь алертом
 
-const auto1 = new Auto('Audi', 300)
+const one = Number(prompt('Enter first number:'));
+const second = Number(prompt('Enter second number:'));
+
+//alert(String(first) + "+" + String("second") + "=" + String(first + second));
+
+alert(`${first} + ${second} = ${first + second}`);
