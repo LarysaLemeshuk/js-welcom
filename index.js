@@ -20,13 +20,42 @@
  - метод упинки (stop)
 */
 
-function Country(name, population, area){
+function Country(name, population, area) {
   this.name = name;
   this.population = population;
   this.area = area;
 
-  this.getDensity = function(PopulationDensity){
-    return  this.population / this.area;
-  }
+  this.getDensity = function (PopulationDensity) {
+    return this.population / this.area;
+  };
 }
-const UK = new Country ('UNITED KINDOM', 6733300, 243610);
+const UK = new Country("UNITED KINDOM", 6733300, 243610);
+
+function Auto(name, maxSpeed) {
+  this.name = name;
+  this.maxSpeed = maxSpeed;
+  this.speed = 0;
+
+  this.accelerate = function (accelValue) {
+    this.speed = this.speed + accelValue;
+    if (this.speed > this.maxSpeed) {
+      this.speed = this.maxSpeed;
+    }
+    return this.speed;
+  };
+
+  this.deaccelerate = function (deaccelValue) {
+    this.speed = this.speed - deaccelValue;
+    if (this.speed < 0) {
+      this.speed = 0;
+    }
+    return this.speed;
+  };
+
+  this.stop = function () {
+    this.speed = 0;
+    return this.speed;
+  };
+}
+
+const auto1 = new Auto('Audi', 300)
