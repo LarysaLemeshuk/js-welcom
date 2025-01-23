@@ -1,26 +1,15 @@
-//[] -обчислювальні властивості
+/*Задача:
+у нас є оюʼєкт з різними версіями привітань для користувача
+вивести користувачу привітання залежно від значення яке він ввів.
 
-const user = {
-  name: "John",
-  "favorite color": "red",
-  0: "value", // ключ- name, значення - John
+*/
+
+const greets = {
+  15: "hi",
+  17: "ya, whats up",
+  19: "Hello",
+  30: "Good morning",
 };
 
-//ключем в обʼєкті може бути рядок або тип даних Symbol
-
-console.log(user.name);
-//user.'favorite color'; синтаксична помилка
-// user.0; syntax error
-
-//[ ] - оператор доступу до обчислювальної вдастивості (коли мова йде про невалідні оператори)
-
-console.log(user["favorite color"]);
-
-console.log(user[0]);
-
-const someObj = {
-    2:10
-}
-// Задача: отримати значення, яке знаходиться під ключем 2
-
-console.log(someObj[2]);
+const valueFromUser = 19;
+console.log(greets[valueFromUser]);
