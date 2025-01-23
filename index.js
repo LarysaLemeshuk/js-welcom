@@ -10,6 +10,15 @@ const obj = {
   thu: "hard work",
   fri: "chill",
   sat: "go to park",
+  'favorite color': 'white',
+  0: 'value'
 };
 const userValue = prompt("введи день тижня :\n Monday = mon, /ntuesday = tue, /n...");
 alert (obj[userValue] ? obj[userValue] : 'Error happened')
+
+// опеератор in
+// in - бінарний оператор
+// 'key' in obj
+
+console.log('mon' in obj);
+
