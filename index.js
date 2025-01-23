@@ -1,15 +1,26 @@
-//практика
-// у нас ж функція
-function greetingUser (user){
-return 'Hey ${user.name} ${user.surname}. You will be ${user.age + 1} naxt year'
-}
+//[] -обчислювальні властивості
 
-//та обʼєкт
 const user = {
-    name: 'John',
-    surname:'DOE',
-    age: 19
-}
-// написати функцію greetingUser таким чином, щоб вона вітала користувача та вказалаБ скільки йому років має бути у настопному році
+  name: "John",
+  "favorite color": "red",
+  0: "value", // ключ- name, значення - John
+};
 
-greetingUser(user);
+//ключем в обʼєкті може бути рядок або тип даних Symbol
+
+console.log(user.name);
+//user.'favorite color'; синтаксична помилка
+// user.0; syntax error
+
+//[ ] - оператор доступу до обчислювальної вдастивості (коли мова йде про невалідні оператори)
+
+console.log(user["favorite color"]);
+
+console.log(user[0]);
+
+const someObj = {
+    2:10
+}
+// Задача: отримати значення, яке знаходиться під ключем 2
+
+console.log(someObj[2]);
