@@ -1,11 +1,11 @@
 const user = {
-    name: 'Jone',
-    lastName:'Doe',
-    age: 20,
-    'favorite color': 'red',
-    movie:'Blue moon',
-    avatar: 'http://....'
-}
+  name: "Jone",
+  lastName: "Doe",
+  age: 20,
+  "favorite color": "red",
+  movie: "Blue moon",
+  avatar: "http://....",
+};
 
 // for..in - використовується для перебору ключів в обʼєкті
 
@@ -20,6 +20,24 @@ object -обʼєкт, властивості ( ключі) якого ми хо�
 
 // Задача: у обʼєкті user вивести назви всіх ключів і властивості
 
-for(let key in user){
-    console.log(`${key}---> ${user[key]}`);
+for (let key in user) {
+  console.log(`${key}---> ${user[key]}`);
+}
+
+/*
+
+Задача: написати функцію, яка приймає обʼєкт і виводить всв значення всіх властивостей, оформлені *....*
+а ключі -"...."
+*/
+
+const obj = {
+  key1: "value 1",
+};
+
+// 'key1': *value1*
+
+function stylingObject(obj) {
+  for (let key in obj) {
+    console.log(`"key": *${obj[key]}*`);
+  }
 }
