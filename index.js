@@ -1,24 +1,25 @@
+const user = {
+    name: 'Jone',
+    lastName:'Doe',
+    age: 20,
+    'favorite color': 'red',
+    movie:'Blue moon',
+    avatar: 'http://....'
+}
+
+// for..in - використовується для перебору ключів в обʼєкті
+
 /*
-Задача: у нас є обʼєкт, ключем в якому є день тижня, а значенням - плани на цей деь
-прийняти від користувача через промпт назве тижня і видати альорт що заплановано у користувача на цей день
+
+for (varieble in object){
+// код, що виконується для кожої властивості
+}
+varieble - змінна, яка буде приймати значення ключів властивостей
+object -обʼєкт, властивості ( ключі) якого ми хочемо перебрати
 */
 
-const obj = {
-  mon: "drive lesson",
-  tue: "dantist",
-  wed: "go to party",
-  thu: "hard work",
-  fri: "chill",
-  sat: "go to park",
-  'favorite color': 'white',
-  0: 'value'
-};
-const userValue = prompt("введи день тижня :\n Monday = mon, /ntuesday = tue, /n...");
-alert (obj[userValue] ? obj[userValue] : 'Error happened')
+// Задача: у обʼєкті user вивести назви всіх ключів і властивості
 
-// опеератор in
-// in - бінарний оператор
-// 'key' in obj
-
-console.log('mon' in obj);
-
+for(let key in user){
+    console.log(`${key}---> ${user[key]}`);
+}
