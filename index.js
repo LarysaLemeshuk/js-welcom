@@ -1,56 +1,20 @@
-// У нас є юзер
-
-const userTelephone1 = "3802675434567";
-const userTelephone2 = "3802675434577";
-const userTelephone3 = "3802675434555";
-
-const userTelephones = {
-  0: "3802675434567",
-  1: "3802675434577",
-  2: "3802675434555",
-};
-
-// Масив (Array)
-
-// Оголошення Масиву
-
-// Перший спосіб
-
-const arr = [2, 4, 6, 7];
-
-// Другий спосіб
-
-const arr2 = new Array(2, 4, 6, 7);
-
-// Способи доступу до елементів масиву
-
-arr[0]; // зчитування значень елементів масиву
-arr[0] = 200; //присвоєння нових значень для елементів масиву
-
-//Задача: вивести всі значення елементів масиву в консолі
-
-// варіант 1
 /*
-console.log(arr[0]);
-console.log(arr[1]);
-console.log(arr[2]);
-console.log(arr[3]);
+
+Задача 1:
+Дано масив [3, 6, 8, 2, 3, 5, 1].
+Напишіть функцію, яка приймає масив в якості аргументу і повертає суму всіх елементів масиву
+
 */
 
-// варіант 2
-/*
-for( let i = 0; i < arr.length; i++){
-    console.log(arr[i]);
-}
-    */
+const numArr = [3, 6, 8, 2, 3, 5, 1];
 
-// Задача: у нас є масив чисел. Вичести на консоль тільки парні числа цього масиву
+function sumOfElementsArr(arr){
+    let res = 0; // Створення змінної, де ми накопичуємо суми 
 
-const numberArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
-for(let i = 0; i < numberArray.length; i++) {
-    if(numberArray[i] % 2 === 0){
-        console.log(numberArray[i]);
+    for(let i = 0; i < arr.length; i++){// 2 крок: циклічне накопичення суми
+        res += arr[i];// res = res + arr[i]
     }
+    return res;// 3 крок: повернення результату
 }
+console.log(sumOfElementsArr(numArr)); //28
 
