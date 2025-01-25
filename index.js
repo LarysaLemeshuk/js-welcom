@@ -1,43 +1,31 @@
-const user = {
-  name: "Jone",
-  lastName: "Doe",
-  age: 20,
-  "favorite color": "red",
-  movie: "Blue moon",
-  avatar: "http://....",
-};
-
-// for..in - використовується для перебору ключів в обʼєкті
-
-/*
-
-for (varieble in object){
-// код, що виконується для кожої властивості
-}
-varieble - змінна, яка буде приймати значення ключів властивостей
-object -обʼєкт, властивості ( ключі) якого ми хочемо перебрати
+/* 
+Задача: у нас є обʼєкт з зарплатами по всіх відділах.
+Написати функцію, яка повертає загальну суму, витрачену на зарплату всіх відділів
 */
 
-// Задача: у обʼєкті user вивести назви всіх ключів і властивості
-
-for (let key in user) {
-  console.log(`${key}---> ${user[key]}`);
+const departmentSalaryCompany1 = {
+    HR: 120000,
+    development: 550000,
+    PR: 50000,
+    marceting: 120000,
+    assistant: undefined
 }
 
-/*
+const departmentSalaryCompany2 = {
+    HR: 120000,
+    JS: 550000,
+    PR: 50000,
+    Clojure: 120000,
+    assistant: undefined
+}
 
-Задача: написати функцію, яка приймає обʼєкт і виводить всв значення всіх властивостей, оформлені *....*
-а ключі -"...."
-*/
+function sumSalary(salaryobject){
+    let sum = 0;
 
-const obj = {
-  key1: "value 1",
-};
-
-// 'key1': *value1*
-
-function stylingObject(obj) {
-  for (let key in obj) {
-    console.log(`"key": *${obj[key]}*`);
-  }
+    for(let key in salaryobject){
+        if(typeof salaryobject[key]=== 'number'){
+        sum +=  salaryobject[key];
+        }
+    } 
+return sum;
 }
