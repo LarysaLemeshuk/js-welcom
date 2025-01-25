@@ -26,6 +26,15 @@ console.log(array4.includes(5));
 //array.join(separator)
 
 const array5 = ["hello", "world", 4, 2, "hi"];
-array5.join();
 console.log(array5.join());
-//
+
+// array.push - використовується для додавання одного або кількох елементів у кінець
+// array.push(element1, .... elementN);
+
+const array6 = [2, 3, 4, 5];
+array6.push(6, 7, 8, 9, 10);
+
+// array.pop - використовується для видалення останнього елементу
+array6.pop();
+array6.pop();
+array6.pop();
