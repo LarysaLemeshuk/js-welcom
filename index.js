@@ -1,33 +1,17 @@
-const users =[{
-    name: 'John',
-    lastName: 'Doe',
-    age: 19,
-    email: 'john.doe@gmail.com'
-}, {
-    name: 'Jone',
-    lastName: 'Doe',
-    age: 22,
-    email: 'jone.doe@gmail.com'
-}, {
-    name: 'Jackson',
-    lastName: 'Doe',
-    age: 55,
-    email: 'jacksone.doe@gmail.com'
-}]
+//console.log(t);
+//console.dir(t);
 
-/*
-Задача 3:
- Створити новий масив користувачів, обʼєкти мають бути в такому виляді:
- {
- fullName: 'Jone Doe',
- email: ...
- }
-*/
-function newUserObject(user){
-    return {
-        fullName: `${user.name} ${user.lastName}`,
-        email: user.email
-    }
+//Будь-яка функція є обʼєкт
+
+//Задача: написати функцію, яка повертає суму Будь-якої кількості переданих в неї аргументів
+
+function sum(a, b) {
+  const arrayArg = Array.from(arguments);
+let sum = 0;
+  for (let i = 0; i < arrayArg.length; i++) {
+    sum += arrayArg[i];
+  }
+  return sum;
 }
 
- const newUsers = users.map(newUserObject)
+console.log(sum(2, 6, 3, 4, 5, 6, 7));
