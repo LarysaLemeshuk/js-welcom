@@ -1,15 +1,33 @@
+const users =[{
+    name: 'John',
+    lastName: 'Doe',
+    age: 19,
+    email: 'john.doe@gmail.com'
+}, {
+    name: 'Jone',
+    lastName: 'Doe',
+    age: 22,
+    email: 'jone.doe@gmail.com'
+}, {
+    name: 'Jackson',
+    lastName: 'Doe',
+    age: 55,
+    email: 'jacksone.doe@gmail.com'
+}]
+
 /*
-Дано масив:
-const array = [2, 44, 11, 234, 8, 2, 4, 1]
-
-Задача:
-Зробити новий масив, всі елементи якого = елемент зі старого масивуу + 100
- */
-
-/*const array = [2, 44, 11, 234, 8, 2, 4, 1]
-function plus100(item){
-    return item + 100
-}
-const newArray = array.map(plus100)
+Задача 3:
+ Створити новий масив користувачів, обʼєкти мають бути в такому виляді:
+ {
+ fullName: 'Jone Doe',
+ email: ...
+ }
 */
-newArray = array.map((item) => item +100)
+function newUserObject(user){
+    return {
+        fullName: `${user.name} ${user.lastName}`,
+        email: user.email
+    }
+}
+
+ const newUsers = users.map(newUserObject)
