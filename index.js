@@ -1,17 +1,15 @@
-//console.log(t);
-//console.dir(t);
+/*
+Cтворити новий масив, кожен елемент якого = елемент із старого масиву * 2
+*/
 
-//Будь-яка функція є обʼєкт
+const oldArray = [2, 3, 4, 5, 1, 2]; // old array
 
-//Задача: написати функцію, яка повертає суму Будь-якої кількості переданих в неї аргументів
+const newStr = oldArray
+  .map((item) => {
+    return item * 2;
+  })
+  .reverse()
+  .join(","); // chaining(map -> reverse)
 
-function sum(a, b) {
-  const arrayArg = Array.from(arguments);
-let sum = 0;
-  for (let i = 0; i < arrayArg.length; i++) {
-    sum += arrayArg[i];
-  }
-  return sum;
-}
-
-console.log(sum(2, 6, 3, 4, 5, 6, 7));
+// Змінити порядок слідування елементів в масиві на протилежний
+// Потрібно зробити з маисва - рядок, розділений комами
