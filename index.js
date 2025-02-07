@@ -1,15 +1,43 @@
+// array.sort - використовується для сортування елементів в масиві (мутуючий)
+//array.sort (compareFunction)
+
+const numbersArray = [5, 3, 9, 21, 1, 2, 4];
+
+//задача: відсортувати масив за зростанням
+
+array.sort(); //сортування за зростанням (unicode)
+const lettersArray = ['bbb', 'abb', 'aaa', 'aba'];
+lettersArray.sort();//сортуання за зростанням
+
+function compareFunction (a, b){// функція компаратор
+  // a - поточне число
+  // b - наступне число, яке слідує за поточним
+  if (b > a){
+    // 4(a),6(b)
+    //сортування за зростанням
+    return -1;
+  } else{// b < a
+//10 (a), 5(b) ---->5, 10
+ //сортування за зростанням
+ return 1;
+  }
+}
+
+// функція-компаратор повинна повернути одне з трьох можливих значень:
 /*
-Cтворити новий масив, кожен елемент якого = елемент із старого масиву * 2
+-1 - спочатку число а, потім b
+0 - елементи залишаються на місці
+1 - спочатку йде число b, потім а
+
 */
 
-const oldArray = [2, 3, 4, 5, 1, 2]; // old array
+numbersArray.sort(compareFunction);
 
-const newStr = oldArray
-  .map((item) => {
-    return item * 2;
-  })
-  .reverse()
-  .join(","); // chaining(map -> reverse)
+const newNumbersArray = [3, 4, 1, 0, -5, 12, 13];
 
-// Змінити порядок слідування елементів в масиві на протилежний
-// Потрібно зробити з маисва - рядок, розділений комами
+function compareNumbers(a, b) {
+  //return a - b;// сортування за зростанням
+return b -a // сортування у порядку спадання
+}
+
+newNumbersArray.sort(compareNumbers);
