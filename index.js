@@ -13,7 +13,23 @@ function filterFunction(item) {
     //item < 0
     return false;
   }*/
- return item > 0
+  return item > 0;
 }
 
 constfilterNumbersArray = numbersArray.filter(filterFunction);
+
+/*
+
+const numbersArray = [5, 3, -9, 21, -5, 1, -2, 4];
+Створити новий масив, в який увійдуть тільки парні елементи початкового масиву
+
+*/
+
+function filterFunction(item) {
+ /* if (item % 2 === 0) {
+    return true;
+  } else {
+    return false;
+  }*/
+ return item % 2 === 0
+}
