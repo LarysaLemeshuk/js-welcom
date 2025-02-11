@@ -72,4 +72,16 @@ dogArray.sort((dog1, dog2)=>{
 1 - dog2, dog1
 */
 
+// Задача 2 : відсіяти всіх собак, крім білих
+
+const whiteDogsArray = dogArray.filter((dog) =>{
+  //variant 1 
+  //if(dpg.color === 'white'){
+  //return true;
+//} else {
+//return false;
+//}
+return dog.color === 'white'
+})
+
 
