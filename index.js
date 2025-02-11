@@ -19,7 +19,7 @@ const test2 = function () {
 
 test2();
 
-console.log(this);// window
+console.log(this); // window
 
 // весь код, оточений фігурними дужками - контекст виконання
 
@@ -29,9 +29,37 @@ Strict mode запустив такий механізм, що у Function Decla
 */
 
 // Arrow Function
-const test3 =() => {
-  console.log(this);//this  вказує на глобальний обʼєкт Wndow
+const test3 = () => {
+  console.log(this); //this  вказує на глобальний обʼєкт Wndow
   // Стрілочна функція не має свого власного контексту виконання
-}
+};
 
 test3();
+
+const newpaper = {
+  title: 'News news news...',
+  articles: [
+    {
+      author: 'John Doe',
+      date: '25-08-2023',
+      text: 'lorem',
+    },
+    {
+      author: 'Richard Doe',
+      date: '23-08-2023',
+      text: 'lorem',
+    },
+    {
+      author: 'Sam Doe',
+      date: '25-08-2023',
+      text: 'lorem',
+    },
+  ],
+  showArticles: function () {
+    this.articles.forEach((item, inex) => {
+      console.log(`${this.item} ${index} - ${item.autor}`);
+    });
+  },
+};
+
+newspaper.showArticles();
