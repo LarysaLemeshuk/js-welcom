@@ -14,10 +14,10 @@ const cat2 = {
 const catMathods = {
   //прототип
   run: function () {
-    console.log('Cat is run');
+    console.log(`${this.name} is running!`);
   },
   meow: function () {
-    console.log('Meow!');
+    console.log(`${this.name} is meow`);
   },
 };
 
