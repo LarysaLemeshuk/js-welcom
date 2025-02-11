@@ -1,35 +1,14 @@
-//array.filter - використовується для створення нового масиву, який містить лише ті елементи, які задовільняють певні умови (не мутуючий)
-//array.filter (callback)
-// -> ця колбек-функція всередині filter вона повинна повертати true/false для кожного елементу масиву
+// array.reduce - використовується для обчислення якогось ОДНОГО значення на основі всіх елементів масиву
+//reduce - зволить всі елементи масиву до якогось одного результату
+// array.reduce(callback, initalValue)
 
-const numbersArray = [5, 3, -9, 21, -5, 1, -2, 4];
+const numbersArray = [ 2, 3, 1, 2, 34, 21];
 
-// Відфільтрувати масив numbersArray, щб залишились тільки додатні числа(>0)
+// Задача: знайти суму numbersArray 
 
-function filterFunction(item) {
-  /*if (item > 0) {
-    return true;
-  } else {
-    //item < 0
-    return false;
-  }*/
-  return item > 0;
+function reducer(accumulator, item){
+  // те, що повертає reducer - оновлений акумулятор
+  return accumulator + item;
 }
 
-constfilterNumbersArray = numbersArray.filter(filterFunction);
-
-/*
-
-const numbersArray = [5, 3, -9, 21, -5, 1, -2, 4];
-Створити новий масив, в який увійдуть тільки парні елементи початкового масиву
-
-*/
-
-function filterFunction(item) {
- /* if (item % 2 === 0) {
-    return true;
-  } else {
-    return false;
-  }*/
- return item % 2 === 0
-}
+const sum = numbersArray.reduce(reducer, 0);// 0-початкове щначення з якого почиаємо рахувати
