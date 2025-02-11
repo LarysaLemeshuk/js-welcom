@@ -23,16 +23,22 @@ return lastItem;
     }
   }
   this.forEach = function(callback){
-    
+    for(let i = 0; i < this.length; i ++){
+      callback(this[i], i, this)
+    }
   }
 }
 
 const arr = new MyArray();
 arr.push(1);
 arr.push(2);
+arr.push(3, 2, 5,);
 
-//Перепишіть push таким чином, щоб він міг приймати та додавати до масиву будь-яку кількість переданих елементів
-arr.push(3, 2, 5, 10, 12, 33);
+// відконсольлогувати квадрати кожного числа в масиві arr
+
+arr.forEach((item)=>{
+  console.log(otem ** 2);
+})
 
 
 
