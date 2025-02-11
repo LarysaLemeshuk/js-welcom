@@ -1,27 +1,50 @@
-const cat = {
-  name: 'Barsik',
-  color: 'red',
-  age: 1,
-};
+function MyArray(){
+  this.length = 0;
+}
 
-const cat2 = {
-  name: 'Murzik',
-  color: 'black',
-  age: 5,
-};
-
-
-const catMathods = {
-  //прототип
-  run: function () {
-    console.log(`${this.name} is running!`);
+function MyArrayPrototype = {
+  this.push = function (value){
+   for(let i =0; i < arguments.length; i++){
+     this[this.length] = arguments[i];
+     this.length ++;
+   }
+    return this.length;
   },
-  meow: function () {
-    console.log(`${this.name} is meow`);
+  this.pop = function(){
+    if(this.length > 0){
+// зберегти останній елемент
+const lastItem = this[this.length - 1];
+// видалити останній елемент з масиву
+delete this[ this.length -1];
+// зменшити довжину масиву на 1
+this.length --;
+// повернути останній елемент
+return lastItem;
+    } else{
+      return undefined;
+    }
   },
-};
+  this.forEach= function(callback){
+    for(let i = 0; i < this.length; i ++){
+      callback(this[i], i, this)
+    }
+  }
+}
 
-// Як прикрутити catMathods до обʼєкту cat
+MyArray.prototype = myArrayPrototype;// рпототипне посилання
 
-cat.__proto__ = catMathods; // прототипне посилання
-cat2.__proto__ = catMathods;
+const arr = new MyArray();
+arr.push(1);
+arr.push(2);
+arr.push(3, 2, 5,);
+
+// відконсольлогувати квадрати кожного числа в масиві arr
+
+arr.forEach((item)=>{
+  console.log(otem ** 2);
+})
+
+// Яка різниця між __proto__  та .prototype
+
+// __proto__ працює тільки тоді, коли ми літерально створили обʼєкт
+// .prototype - коли обʼєкти створюються за допомогою конструктора
