@@ -1,65 +1,43 @@
 'use strict';
-//strict mode
 
-console.log(this); // => window
-
-// this  у глобальній області видимості посилається на обʼєкт Window
-
-function test() {
+// Написати функцію суми двох аргументів
+function sum(a, b) {
   // Function Declaration
-  console.log(this); // => undefind
+  return a + b;
 }
 
-test();
-
-//Function Expression
-const test2 = function () {
-  console.log(this); // undefined
+const sumArrow = (a, b) => {
+  //1 Arrow Function
+  return a + b; //1 функція складається тільки з одного-єдиного return
 };
 
-test2();
+const sumArrowVariant2 = (a, b) => a + b; // a + b === { return a + b }
 
-console.log(this); // window
+// Задача: Написати функцію, яка приймає число і зводить його у квадрат
 
-// весь код, оточений фігурними дужками - контекст виконання
+const pow = number ** 2; // якщо аргумент 1, то круглі дужки можна опустити
+//АЛЕ ! Якщо ваша функція не приймає аргументів взагалі - круглі дужки (пусті) обовʼязкові
+
+const SuperFunc = () => {
+  // this вказує на глобальну область видимості
+  this.value = 'hello'; // нам потрібно, щоб функція-констуктор вказувала на свій власний контекст виконання
+}; //функція-констуктор не може бути стрілочною
+
+//arguments - псевдомасив з аргументами, які ми передаємо нашій функції при виклику
+
+const t1 = function () {// function expression
+  console.log(arguments);
+};
+
+const t2 = ()=> {// стрілочні функції не мають arguments
+  console.log(arguments);
+};
+
+t2('hello', 'world', '!!!!');
 
 /*
-Strict mode запустив такий механізм, що у Function Declaration ta Function Expression зʼявляється свій власний контекст виконання
-контекстом виконання функції стає сама функція, а не глобальний обʼєкт window
+
+1. Стрілочна функція не має свого власного контексту виконання (вона буде брати найближчий доступний)
+2. Стрілочна функція не може бути функцією-конструктором
+3. Стрілочна функція не має колекції arguments
 */
-
-// Arrow Function
-const test3 = () => {
-  console.log(this); //this  вказує на глобальний обʼєкт Wndow
-  // Стрілочна функція не має свого власного контексту виконання
-};
-
-test3();
-
-const newpaper = {
-  title: 'News news news...',
-  articles: [
-    {
-      author: 'John Doe',
-      date: '25-08-2023',
-      text: 'lorem',
-    },
-    {
-      author: 'Richard Doe',
-      date: '23-08-2023',
-      text: 'lorem',
-    },
-    {
-      author: 'Sam Doe',
-      date: '25-08-2023',
-      text: 'lorem',
-    },
-  ],
-  showArticles: function () {
-    this.articles.forEach((item, inex) => {
-      console.log(`${this.item} ${index} - ${item.autor}`);
-    });
-  },
-};
-
-newspaper.showArticles();
