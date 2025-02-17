@@ -23,3 +23,14 @@ console.log(sum(...numbers))// spread operator
 const numbersMath = [2, 3, 1, 5, 4];
 
 Math min (...numbersMath);
+
+// Задача
+
+const aray1 = [1, 2, 3, 4, 5];
+const array2 =[10, 11, 12, 13, 14, 15];
+
+// Потрібно зклеїти ці 2 масиви
+// Не можна використовувати метод concat
+// Використовуйте spread
+
+const resultArray = [ ...aray1, ...array2];
