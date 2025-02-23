@@ -25,7 +25,6 @@ class User {
 const user1 = new User('Alex', 'Dane', 20);
 const user2 = new User('Dari', 'Dane', 23);
 
-
 /*
 
 Правила класів:
@@ -36,3 +35,23 @@ const user2 = new User('Dari', 'Dane', 23);
 4. Як і у функціях-конструкторах, назва класу пишеться з великої літери
 
 */
+
+/*
+Написати клас Worker
+у працівнтка є імʼя, прізвище, ставка за робочий день і кількість відпрацьованих днів у цьому місяці
+Метод, який повертає зарплатню за поточний місяць
+*/
+
+class Worker {
+  constructor(name, lastName, rata, days) {
+    this.name = name;
+    this.lastName = lastName;
+    this.rata = rata;
+    this.days = days;
+  }
+  getSalary() {
+    return this.rata * this.days;
+  }
+}
+
+const worker1 = new Worker('John', 'Doe', 300, 21);
