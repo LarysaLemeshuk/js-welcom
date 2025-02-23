@@ -42,11 +42,15 @@ const user2 = new User('Dari', 'Dane', 23);
 Метод, який повертає зарплатню за поточний місяць
 */
 
+const MIN_ZP = 7100;
+const WORK_DAYS = 21;
+const MIN_RATE = MIN_ZP / WORK_DAYS;
+
 class Worker {
-  constructor(name, lastName, rata, days) {
+  constructor(name, lastName, rate = MIN_RATE, days = WORK_DAYS) {
     this.name = name;
     this.lastName = lastName;
-    this.rata = rata;
+    this.rate = Number(rate.toFixed(2));
     this.days = days;
   }
   getSalary() {
@@ -55,3 +59,15 @@ class Worker {
 }
 
 const worker1 = new Worker('John', 'Doe', 300, 21);
+const worker2 = new Worker('Savanna', 'loe');
+
+/*
+Параметри за замовчуванням
+*/
+function sum(a = 10, b = 5) {
+  return a + b;
+}
+
+console.log(sum()); // 15
+console.log(sum(3, 6)); //  9
+console.log(sum(5)); // 10
