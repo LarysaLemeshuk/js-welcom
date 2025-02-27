@@ -47,14 +47,19 @@ const WORK_DAYS = 21;
 const MIN_RATE = MIN_ZP / WORK_DAYS;
 
 class Worker {
-  constructor(name, lastName, rate = MIN_RATE, days = WORK_DAYS) {
+  constructor(name, lastName, rate = MIN_RATE, days = WORK_DAYS, coefficient) {
     this.name = name;
     this.lastName = lastName;
     this.rate = Number(rate.toFixed(2));
     this.days = days;
+    this.coefficient = coefficient;
   }
   getSalary() {
-    return this.rata * this.days;
+    if (coefficient) {
+      return this.rata * this.days;
+    } else {
+      return this.rate * this.days;
+    }
   }
 }
 
@@ -71,3 +76,36 @@ function sum(a = 10, b = 5) {
 console.log(sum()); // 15
 console.log(sum(3, 6)); //  9
 console.log(sum(5)); // 10
+
+/*
+Клас авто
+Клас паливо
+
+Задача: порахувати загальну вагу автомобіля (вага авто + вага палива)
+*/
+
+class Fuel {
+  constructor(volume, density) {
+    this.volume = volume;
+    this.density = density;
+  }
+  getWeight() {
+    return this.volume * this.density;
+  }
+}
+
+const benzin = new Fuel(50, 0.9);
+
+class Auto {
+  constructor(name, ownWeight, fuel) {
+    this.name = name;
+    this.ownWeight = ownWeight;
+    this.fuel = fuel;
+  }
+  // метод, який обчислює повну вагу авто: його власна вага ownWeight + вага палива
+  getFullWeight() {
+    return this.ownWeight + this.fuel.getWeight();
+  }
+}
+
+const bmw = new Auto('BMW', 4000, benzin);
