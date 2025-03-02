@@ -1,33 +1,47 @@
-class Test {
-  constructor(value1, value2) {
-    this.key1 = value1;
-    this.key2 = value2;
-  }
+/*
 
-  method() {
-    // тіло методу
-  }
-  // варіант 2 для оголошення статичного методу - більш розповсюдений
-  static myStaticMethod(parameter){
-    // тіло функції - щось робимо
-    console.log(parameter);
-  }
-}
+Напишіть клас RangValidator.
 
+У класі має бути 2 властивості: From, to
+From, to - числа, за типом даних.
 
-// Статичні методи - це методи, якими ми можемо скористатися не відбудовуючи екземпляр класу
-// В статичних методах ми не використовуємо this
+Завдання: реалізувати сеттери та геттери для обох властивосей
+реалізувати звичайний метод getRange, який має повертати масив цілих чисел з цього діапазону
 
-/* 
-Варіант 1 для оголошення статичного методу
-Test.myStaticMethod = function(parameter){
-    // тіло функції
-    console.log(parameter);
-}
+const object1 = new RangeValidator(2, 5);
+object1.getRange();// [2, 3, 4, 5]
 
-Test.myStaticMethod('123');
 */
 
+class RangValidator {
+  constructor(from, to) {
+    this.to = to;
+    this.from = from;
+  }
 
-const obj1 = new Test('test1, test2'); // створення нового екземпляру класу Test
+  set from(value) {
+    if (typeof value !== 'number') {
+      throw new TypeError('From ust be a number');
+    }
+    if (value > this._to) {
+      throw new RangeError('From must be a larger than to');
+    }
+    this._from = value;
+  }
+
+  set to(value) {
+    if (typeof value !== 'number') {
+      throw new TypeError('To must be a number');
+    }
+    this._to = value;
+  }
+
+  getRang() {
+    const arr = [];
+    for (let i = this.from; i <= this.to; i++) {
+      arr.push(i);
+    }
+    return arr;
+  }
+}
 
