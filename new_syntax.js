@@ -6,12 +6,7 @@ class Worker {
   constructor(name, lastName, rate = MIN_RATE, days = WORK_DAYS, coefficient) {
     this.name = name;
     this.lastName = lastName;
-    this.rate = Number(rate.toFixed(2)); 
-
-    if (days < 0 || days > 31) {
-      throw new RangeError('Days must be in 0 to 31');
-    }
-
+    this.rate = Number(rate.toFixed(2));
     this.days = days;
     this.coefficient = coefficient;
   }
@@ -51,7 +46,6 @@ class Worker {
     return this._name;
   }
 
-
   set lastName(newValue) {
     if (typeof newValue !== 'string') {
       throw new TypeError('LastName be a string');
@@ -64,6 +58,31 @@ class Worker {
 
   get lastName() {
     return this._lastName;
+  }
+
+  set days(newValue) {
+    if (days < 0 || days > 31) {
+      throw new RangeError('Days must be in 0 to 31');
+    }
+    this._days = newValue;
+  }
+
+  get days() {
+    return this._days;
+  }
+
+  set coefficient(newValue) {
+    if (newValue < 0) {
+      throw new RangeError('coefficient must be a positive number');
+    }
+    if (typeof newValue !== 'number') {
+      throw new TypeError('coefficient must be a number');
+    }
+    this._coefficient = newValue;
+  }
+
+  get coefficient() {
+    return this._coefficient;
   }
 
   getSalary() {
@@ -82,7 +101,6 @@ console.log(worker1.rate); // геттер
 
 // В середині класу геттери / сеттери працюють з приватними полями
 // А при зверненні до класу ззовні ми працюємо з геттерами/сеттерами
-
 
 // Задача: розробити геттери та сеттери для полів days та coeficient
 // передбачте перевірки в сеттерах
