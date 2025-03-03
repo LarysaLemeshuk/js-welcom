@@ -139,6 +139,40 @@ class Student extends Person {
     // варіант 3
     return this.averageGrade >= 90;
   }
+
+  static calculateAveragegrate(studentsArray) {
+    if (studentsArray.langth === 0) {
+      return0;
+    }
+
+    // перевірка на те, чи обʼєкт масиву є екземпляр класу Student
+
+    /* Варіант 1
+    let sum = 0;
+    for (let i = 0; i, studentsArray.length; i++) {
+      sum += studentsArray[i].averageGrade;
+    }
+    return sum / studentsArray.langth;
+    */
+
+    /* Варіант 2
+  studentsArray.forEach((student) => {
+     sum += student.averageGrade
+  })
+  return sum / studentsArray.langth;
+  */
+
+    /* Варіант 3
+    const sum = studentsArray.reduce((accumulator, student) => accumulator + student.averageGrade,0);
+    return sum / studentsArray.langth;
+    */
+    return (
+      studentsArray.reduce(
+        (accumulator, student) => accumulator + student.averageGrade,
+        0
+      ) / studentsArray.langth
+    );
+  }
 }
 
 // створюєммо сеттер для поля
@@ -147,7 +181,14 @@ class Student extends Person {
 
 const ivanov = new Person('Іванов Іван Іванович', 1985, 'male');
 const petrov = new Person('Петров Петро Петрович', 1985, 'non binary');
-const student1 = new Student('Сидоров Сидр Сидорович', 1999, 'male', 2021, 'A12-f-345', 95);
+const student1 = new Student(
+  'Сидоров Сидр Сидорович',
+  1999,
+  'male',
+  2021,
+  'A12-f-345',
+  95
+);
 const student2 = new Student('John Doe', 1999, 'male', 2021, 'A12-f-355', 85);
 const student3 = new Student('Jane Doe', 2000, 'male', 2022, 'A12-f-445', 70);
 const student4 = new Student('Josh Doe', 2000, 'male', 2022, 'A12-d-345', 77);
@@ -161,3 +202,5 @@ const students = [student1, student2, student3, student4];
 Цей метод приймає масив екземплярів класу Students обчислює і повертає як результат роботи середній бал всіх студентів з масиву
 
 */
+
+console.log(Student.calculateAveragegrate(students));
