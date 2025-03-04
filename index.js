@@ -1,206 +1,118 @@
-/*
-Клас Людина та похідний клас студент
+// ООП
 
-1. Створіть базовий клас Людини
-- ПІБ
-- Дата народження
-- Стать
+/* Загальні ідеї ООП
 
-2. Створіть похідний клас Студент, який наслідує властивості класу Людина.
-Додайте до класу студент такі додаткові властивості
-- Рік вступу
-- Номер залікової книжки
-- Середній бал
+1. ООП збудоване навколо оббʼєктів
+2. Поділ потрібний для того, щоб можна було створювати, обслуговувати та перетворювати якісь частини програми, не впиваючи прицьому на інші.
+3. Сенс обʼєкти у тому, що він має якісь методи, тобто він вміє щось робити, при цьому, інші обʼєкти  не знають як він це робитью
+4. Обʼєкт має поняття атрибуту і методу
+Атрибут - будь-які дані які зберігаються в середині обʼєкта
+Методи - будь-які дії, які можна здійснювати над обʼєктом , атрибутами обʼєкта.
+Атрибути зазвичай виражаються змінними, а методм виражаються функціями.
+5. Оюʼєкти можна створювати за шаблоном - такі шаблони називають класами.
 
-3. Реалізуйте наступні методи 
-
-В класі Людини
-- gretting() - метод повертає привітання для людини, в залежності від її статі(Mr або Mrs)
-
-В класі Студента
-- is ExellentStudent() -  цей метод перевіряє, чи є студент відмінником на основі середнього балу.
-Якщо середній бал студента вищий або рівний 90, то метод поверне true, в іншому випадку - false
 
 */
 
-class Person {
-  constructor(fullName, birthYear, gender) {
-    this.fullName = fullName;
-    this._birthYear = birthYear;
-    this.gender = gender;
+// Геттери та сеттери - аксессори (від англ. access - доступ)
+
+// Абстракція - коли ми зосереджуємось тільки на суттєвих для завданнях деталях (коли описуємо обʼєкт) і ігноруємо все інше.
+// Чим менше характеристик у обʼєкта, тим краща абстракція, ае ключові характеристики не можна прибирати!
+
+// Щоб працювати з абстракціями , використовують інтерфейси
+// Інтерфейс - спосіб взаємодії з обʼєктом, який визначає, які операції можна здійснити з обʼєктом, які дані можна отримати або змінити
+
+// Інкапсуляція - процес обʼєднання даних та методів в одному обʼєкті і приховування деталей реалізації від користувача
+
+// В чому разниця між інкапсуляцією та абстракцією?
+// Інкапсуляція зосереджена на організації та приховувані деталей реалізації обʼєкта
+// Абстракція спрощує складність системи шляхом виділення ключових аспектів та приховуванні незначних деталей
+
+// Спадкування - здатність до копіювання, можливість описати новий клас на основі вже існуючого
+
+class Figure {
+  constructor(sideQuantity) {
+    this.sideQuantity = sideQuantity;
   }
 
-  // Setters
+  get sideQuantity() {
+    return this.sideQuantity;
+  }
 
-  set fullName(value) {
-    if (typeof value !== 'string') {
-      throw new TypeError('Fullname must be a string');
+  set sideQuantity(newValue) {
+    if (newValue < 0) {
+      throw new RangeError('Side cannot be less then 0');
     }
-    this._fullName = value;
+    this.sideQuantity = newValue;
   }
-  set birthYeaar(value) {
-    // тут потрібно валідувати дату
-    this._birthYear = value;
+  getArea() {}
+}
+
+class Triangle extends Figure {
+  constructor(a, b, angle) {
+    super(3);
+    this.a = a;
+    this.b = b;
+    this.angle = angle;
   }
-  set gender(value) {
-    if (typeof value !== 'string') {
-      throw new TypeError('Fullname must be a string');
+  get a() {
+    return this._a;
+  }
+
+  set a(newValue) {
+    if (newValue < 0) {
+      throw new RangeError('Side cannot be less then 0');
     }
-    this._gender = value;
+
+    this._a = newValue;
   }
 
-  // Getters
-
-  get fullName() {
-    return this._fullName;
+  get b() {
+    return this._b;
   }
-  get birthYeaar() {
-    return this._birthYear;
-  }
-  get gender() {
-    return this._gender;
-  }
-
-  // methods
-
-  greeting() {
-    let prefix; // Ми у цю змінну будемо класти або Mr або Mrs в залежності від статі
-    if (this.gender === 'male') {
-      prefix = 'Mr';
-    } else if (this.gender === ' female') {
-      prefix = 'Mrs';
-    } else {
-      prefix = prompt('How should we address you?');
+  set b(newValue) {
+    if (newValue < 0) {
+      throw new RangeError('Side cannot be less than 0');
     }
-    return `Hello ${prefix} ${this.fullName}`;
+    this._b = newValue;
+  }
+
+  get angle() {
+    return this._angle;
+  }
+
+  set angle(newValue) {
+    if (newValue < 0) {
+      throw new RangeError('Angle cannot be less than 0');
+    }
+    this._angle = newValue;
+  }
+
+  getArea() {
+    return this.a * this.b * Math.sin(this.angle);
   }
 }
 
-class Student extends Person {
-  constructor(
-    fullName,
-    birthYear,
-    gender,
-    admissionYear,
-    studentId,
-    averageGrade
-  ) {
-    super(fullName, birthYear, gender);
-
-    this.admissionYear = admissionYear;
-    this.studentId = studentId;
-    this.averageGrade = averageGrade;
+class Square extends Figure {
+  constructor(a) {
+    super(4);
+    this.a = a;
   }
 
-  // Setters
+  get a() {
+    return this._a;
+  }
 
-  set admissionYear(value) {
-    // тут потрібно валідувати дату
-    this._admissionYear = value;
-  }
-  set studentId(value) {
-    this._studentId = value;
-  }
-  set averageGrade(value) {
-    if (typeof value !== 'number') {
-      throw new TypeError('Average grade must a number');
+  set a(newValue) {
+    if (newValue < 0) {
+      throw new RangeError('Side cannot be less than 0');
     }
-    if (value > 100 || value < 0) {
-      throw new RangeError('Average grade must [0; 10]');
-    }
-    this._averageGrade = value;
+    this._a = newValue;
   }
 
-  //Getters
-
-  get admissionYear() {
-    return this._admissionYear;
-  }
-  get studentId() {
-    return this._studentId;
-  }
-  get averageGrade() {
-    return this._averageGrade;
-  }
-
-  // Methods
-
-  isExellentStudent() {
-    //варіант 1
-    // if(this.averageGrade >= 90) {
-    //  return true;
-    //  }else {
-    //   false
-    //  }
-    // варіант 2
-    // умова ? що робимо коли умова = true : що робимо, якщо умова = false
-    //const result = this.averageGrade >= 90 ? true : false;
-    //return result;
-    // варіант 3
-    return this.averageGrade >= 90;
-  }
-
-  static calculateAveragegrate(studentsArray) {
-    if (studentsArray.langth === 0) {
-      return0;
-    }
-
-    // перевірка на те, чи обʼєкт масиву є екземпляр класу Student
-
-    /* Варіант 1
-    let sum = 0;
-    for (let i = 0; i, studentsArray.length; i++) {
-      sum += studentsArray[i].averageGrade;
-    }
-    return sum / studentsArray.langth;
-    */
-
-    /* Варіант 2
-  studentsArray.forEach((student) => {
-     sum += student.averageGrade
-  })
-  return sum / studentsArray.langth;
-  */
-
-    /* Варіант 3
-    const sum = studentsArray.reduce((accumulator, student) => accumulator + student.averageGrade,0);
-    return sum / studentsArray.langth;
-    */
-    return (
-      studentsArray.reduce(
-        (accumulator, student) => accumulator + student.averageGrade,
-        0
-      ) / studentsArray.langth
-    );
+  getArea() {
+    return this.a * this.a; // .this.a ** 2
   }
 }
 
-// створюєммо сеттер для поля
-// використовуємо сеттер у конструктоі
-// створюємо геттер для поля
-
-const ivanov = new Person('Іванов Іван Іванович', 1985, 'male');
-const petrov = new Person('Петров Петро Петрович', 1985, 'non binary');
-const student1 = new Student(
-  'Сидоров Сидр Сидорович',
-  1999,
-  'male',
-  2021,
-  'A12-f-345',
-  95
-);
-const student2 = new Student('John Doe', 1999, 'male', 2021, 'A12-f-355', 85);
-const student3 = new Student('Jane Doe', 2000, 'male', 2022, 'A12-f-445', 70);
-const student4 = new Student('Josh Doe', 2000, 'male', 2022, 'A12-d-345', 77);
-
-const students = [student1, student2, student3, student4];
-
-/*
-
-Реалізувати статичний метод в класі Students
-
-Цей метод приймає масив екземплярів класу Students обчислює і повертає як результат роботи середній бал всіх студентів з масиву
-
-*/
-
-console.log(Student.calculateAveragegrate(students));
+const square = new Square(4);
