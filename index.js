@@ -1,72 +1,39 @@
-/*
-
-Фабричний метод - спосіб створювати обʼєкти, який дозволяє нам не вказувати конкретний клас обʼкта.
-Використовуємо спеціальну 'фабрику для' обʼєктів.
-Фабрика знає, який саме обʼєкт створити і повертає його нам
-
-new Student();// не робимо!
-
-Зверьаємось до фабрики, фабриці повідомляємо, що нам потрібно, фабрика уже буде робити нам екземпляри потрібного класу (new Student)
-
-*/
-
-// Абстракний клас або інтерфейс
-class Animal {
-  constructor(nickname) {
-    this.nickname = nickname;
+class MyArray {
+  constructor() {
+    this.length = 0;
+  }
+  push() {
+    for (let i = 0; i < arguments.length; i++) {
+      this[this.length] = arguments[i];
+      this.length++;
+    }
+    return this.length;
   }
 
-  makeSound() {
-    // абстракний метод
+  pop() {
+    if (this.length > 0) {
+      // зберегти останній елемент
+      const lastItem = this[this.length - 1];
+      // видалити останній елемент з масиву
+      delete this[this.length - 1];
+      // зменшити довжину масиву на 1
+      this.length--;
+      // повернути останній елемент
+      return lastItem;
+    } else {
+      return undefined;
+    }
   }
-}
 
-class Dog extends Animal {
-  constructor(nickname) {
-    super(nickname);
-  }
-  makeSound() {
-    // віртуальний метод
-    console.log('гав-гав');
-  }
-}
-
-// Конкретний клас для кота
-class Cat extends Animal {
-  constructor(nickname) {
-    super(nickname);
-  }
-  makeSound() {
-    // віртуальний метод
-    console.log('Мяу-мяу');
-  }
-}
-
-// Фабричний клас, який створює обʼєкти
-
-class AnimalFactory {
-   static createAnimal(type, nickname) {
-    switch (type) {
-      case 'dog':
-        return new Dog(nickname);
-      case 'cat':
-        return new Cat(nickname);
-      default:
-        throw new Error(`Невідомий тип тварини:${type}`);
+  forEach(callback) {
+    for (let i = 0; i < this.length; i++) {
+      callback(this[i], i, this);
     }
   }
 }
 
-// Використання фабрики для створення обʼєктів
+const arr = new MyArray();
 
-const factory = new AnimalFactory();
-
-// Створити обʼєкт собаки
-
-const dog = AnimalFactory.createAnimal('dog', 'tuzik');
-dog.makeSound(); // Гав-гав
-
-// створити обʼєкт кота
-
-const cat = AnimalFactory.createAnimal('cat', 'Murzik');
-cat.makeSound(); // Мяу-мяу
+arr.forEach((item) => {
+  console.log(otem ** 2);
+});
