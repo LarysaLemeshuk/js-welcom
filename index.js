@@ -18,7 +18,37 @@ const monitor = {
   resolution: '4K',
 };
 
-// У нас є обʼєкт юзера
+/*
+
+Існує 3 види деструктуризації обʼєктів у JS:
+1. Деструктуризація обʼєктів
+2. Деструктуризація вхідних параметрів
+3. Деструктуризація масивів
+
+*/
+
+function getFullName({ firstName, lastName, ...restObject}) {
+  // все інше ігнорується
+  return `$(firstName) $(lastName)`;
+}
+
+const user2 = {
+  firstName: 'John',
+  lastName: 'Doe',
+  age: 42,
+  geolocation: '42.3445564 .4t66',
+  browser: 'Chrome',
+};
+
+console.log(getFullName(user2));
+
+
+
+
+const arr = [1, 2, 3, 4, 5, 6];
+// const firstElement = arr[0];
+
+const [firstElement, secondElement, ...restOfArr] = arr;
 
 const user = {
   name: 'John',
@@ -29,19 +59,18 @@ const user = {
   },
   contacts: {
     email: 'john@gmail.com',
-    phone: '+380987766554443',
+    phones: ['+38098765545667', '+380665948835', '+380988957846'],
   },
 };
 
-// Задача: з використанням деструктуризації отримати значення: name, city, email, phone
+// const {
+//   contacts: { phones },
+// } = user;
+
+// const [firstJohnNumber, secondJohnNumber, thirdJohnNumber] = phones;
 
 const {
-  name,
-  address: { city },
-  contacts: { email, phone },
+  contacts: {
+    phones: [firstJohnNumber, secondJohnNumber, thirdJohnNumber],
+  },
 } = user;
-
-console.log(name);
-console.log(city);
-console.log(email);
-console.log(phone);
