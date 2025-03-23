@@ -1,76 +1,48 @@
-const monitor = {
-  sizes: {
-    height: {
-      value: 30,
-      scale: 'cm // 1',
-    },
-    width: {
-      value: 50,
-      scale: 'cm // 2',
-    },
-  },
-  brightness: 750,
-  refresh: {
-    value: 144,
-    scale: 'Grc',
-  },
-  color: 'black',
-  resolution: '4K',
-};
+// Замикання дозволяє функціям зберігати доступ до змінних, навіть коли ці функції завершують своє виконання
+// Замикання - здатність функції запамʼятовувати локальну область видимості
 
-/*
+let value = 10; // глобальна область видимості
 
-Існує 3 види деструктуризації обʼєктів у JS:
-1. Деструктуризація обʼєктів
-2. Деструктуризація вхідних параметрів
-3. Деструктуризація масивів
+function wrapper() {
+  let value = 20; // локальна область видимості
 
-*/
+  console.log('WRAPPER function', value);
 
-function getFullName({ firstName, lastName, ...restObject}) {
-  // все інше ігнорується
-  return `$(firstName) $(lastName)`;
+  return function log() {
+    console.log('LOG function', value);
+  };
 }
 
-const user2 = {
-  firstName: 'John',
-  lastName: 'Doe',
-  age: 42,
-  geolocation: '42.3445564 .4t66',
-  browser: 'Chrome',
-};
+//////////
 
-console.log(getFullName(user2));
+// function counter() {
+//   let i = 0;
+//   i++;
+//   return i;
+// }
+
+function makeCounter() {
+  let i = 0;
+  return function () {
+    return i++; // i - змінна у замиканні
+  };
+}
+
+//////////////
+
+function makeCounterVersion2() {
+  let counter = 0;
+
+  return {
+    increment() {
+      return ++counter;
+    },
+    decrement() {
+      return --counter;
+    },
+  };
+}
+
+const fnObj = makeCounterVersion2();
 
 
-
-
-const arr = [1, 2, 3, 4, 5, 6];
-// const firstElement = arr[0];
-
-const [firstElement, secondElement, ...restOfArr] = arr;
-
-const user = {
-  name: 'John',
-  age: 30,
-  address: {
-    city: 'Kyiv',
-    country: 'Ukraine',
-  },
-  contacts: {
-    email: 'john@gmail.com',
-    phones: ['+38098765545667', '+380665948835', '+380988957846'],
-  },
-};
-
-// const {
-//   contacts: { phones },
-// } = user;
-
-// const [firstJohnNumber, secondJohnNumber, thirdJohnNumber] = phones;
-
-const {
-  contacts: {
-    phones: [firstJohnNumber, secondJohnNumber, thirdJohnNumber],
-  },
-} = user;
