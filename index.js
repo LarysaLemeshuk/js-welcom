@@ -18,33 +18,30 @@ const monitor = {
   resolution: '4K',
 };
 
-// const height = monitor.sizes.height.value;
+// У нас є обʼєкт юзера
 
-//const { resolution, color: monitorColor } = monitor;
+const user = {
+  name: 'John',
+  age: 30,
+  address: {
+    city: 'Kyiv',
+    country: 'Ukraine',
+  },
+  contacts: {
+    email: 'john@gmail.com',
+    phone: '+380987766554443',
+  },
+};
 
-//console.log(resolution);
-//console.log(color);
-
-// Задача: витянути value для ширини та висоти монітору
+// Задача: з використанням деструктуризації отримати значення: name, city, email, phone
 
 const {
-  sizes: {
-    height: { value: heightValue },
-    width: { value: widthValue },
-  },
-} = monitor;
+  name,
+  address: { city },
+  contacts: { email, phone },
+} = user;
 
-// console.log(heightValue);
-// console.log(widthValue);
-
-const {
-  sizes: {
-    height: { scale: heightScale },
-    width: { scale: widthScale },
-  },
-} = monitor;
-
-console.log(heightScale);
-console.log(widthScale);
-
-const { color, brightness, resolution, ...restOfMonitor } = monitor;
+console.log(name);
+console.log(city);
+console.log(email);
+console.log(phone);
